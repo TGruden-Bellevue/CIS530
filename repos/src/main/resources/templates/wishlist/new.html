@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Add Wishlist Item</title></head>
+<body>
+<h1>Add New Wishlist Item</h1>
+<form th:action="@{/wishlist}" th:object="${wishlistItem}" method="post">
+    <label>ISBN:</label>
+    <input type="text" th:field="*{isbn}" />
+    <div th:errors="*{isbn}" style="color:red"></div>
+    <br/>
+    <label>Title:</label>
+    <input type="text" th:field="*{title}" />
+    <div th:errors="*{title}" style="color:red"></div>
+    <br/>
+    <button type="submit">Add</button>
+</form>
+<a href="/wishlist">Return to wishlist</a>
+</body>
+</html>
