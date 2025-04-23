@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Contact Us - Book Club</title>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
     <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
+    <!-- Include header fragment -->
     <div th:replace="fragments/header :: header"></div>
-    <main class="container">
+
+    <div class="container">
         <h1>Contact Us</h1>
-        <p>Reach out to us with your questions and suggestions.</p>
-    </main>
+        <p>Email us at <a href="mailto:contact@bookclub.com">contact@bookclub.com</a></p>
+    </div>
+
+    <!-- Include footer fragment -->
     <div th:replace="fragments/footer :: footer"></div>
+
+    <!-- Include script footer fragment -->
     <div th:replace="fragments/scriptFooter :: scriptFooter"></div>
 </body>
 </html>

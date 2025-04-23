@@ -9,9 +9,11 @@ public class Book {
     private int numOfPages;
     private List<String> authors;
 
+    // Default constructor
     public Book() {
     }
 
+    // Constructor with all properties
     public Book(String isbn, String title, String description, int numOfPages, List<String> authors) {
         this.isbn = isbn;
         this.title = title;
@@ -20,6 +22,7 @@ public class Book {
         this.authors = authors;
     }
 
+    // Getters and setters
     public String getIsbn() {
         return isbn;
     }
@@ -62,7 +65,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{isbn=" + isbn + ", title=" + title + ", description=" + description +
-                ", numOfPages=" + numOfPages + ", authors=" + authors + "}";
+        return "Book{isbn=" + isbn + ", title=" + title + ", description=" + description + ", numOfPages=" + numOfPages
+                + ", authors=" + authors + "}";
     }
 }
