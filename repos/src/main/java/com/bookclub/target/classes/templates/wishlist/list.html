@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Wishlist</title></head>
+<body>
+<h1>Wishlist</h1>
+<a href="/wishlist/new">New Wishlist Item</a>
+<table class="table">
+    <thead>
+        <tr><th>ISBN</th><th>Title</th></tr>
+    </thead>
+    <tbody>
+        <tr th:each="item : ${wishlist}">
+            <td th:text="${item.isbn}"></td>
+            <td th:text="${item.title}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

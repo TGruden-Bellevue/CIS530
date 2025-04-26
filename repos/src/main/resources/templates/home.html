@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - BookClub</title>
+</head>
+<body>
+    <h1>Welcome to the BookClub!</h1>
+
+    <h2>Books Available</h2>
+    <ul>
+        <th:block th:each="book : ${books}">
+            <li>
+                <p th:text="${book.title}"></p>
+                <p th:text="${book.description}"></p>
+            </li>
+        </th:block>
+    </ul>
+
+    <h2>Your Wishlist</h2>
+    <ul>
+        <th:block th:each="item : ${wishlistItems}">
+            <li>
+                <p th:text="${item.name}"></p>
+            </li>
+        </th:block>
+    </ul>
+
+</body>
+</html>

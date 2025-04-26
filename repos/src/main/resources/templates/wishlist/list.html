@@ -1,21 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Wishlist</title>
 </head>
 <body>
     <h1>Wishlist</h1>
-    <a href="/wishlist/new">New Wishlist Item</a>
-    <table>
-        <tr>
-            <th>ISBN</th>
-            <th>Title</th>
-        </tr>
-        <tr th:each="item : ${wishlist}">
-            <td th:text="${item.isbn}">ISBN</td>
-            <td th:text="${item.title}">Title</td>
-        </tr>
+    <table id="wishlistTable">
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody id="wishlistBody"></tbody>
     </table>
+
+    <script>
+        class HttpClient {
+            async get(url) {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data;
+            }
+        }
+
+        function buildTable(data) {
+            let tableString = "<tr><th>ISBN</th><th>Title</th></tr>";
+            for (const item of data) {
+                tableString += `<tr><td>${item.isbn}</td><td>${item.title}</td></tr>`;
+            }
+            return tableString;
+        }
+
+        async function loadWishlist() {
+            const client = new HttpClient();
+            const data = await client.get("/api/wishlist");
+            document.getElementById("wishlistBody").innerHTML = buildTable(data);
+        }
+
+        loadWishlist();
+    </script>
 </body>
 </html>
