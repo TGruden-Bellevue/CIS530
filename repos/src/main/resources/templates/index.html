@@ -2,14 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Book Club</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Book List</h1>
-    <ul>
-        <li th:each="book : ${books}">
-            <a th:href="@{/monthly-books/{isbn}(isbn=${book.isbn})}" th:text="${book.title}">Book Title</a>
-        </li>
-    </ul>
+    <h1>Books in the Library</h1>
+
+    <div th:each="book : ${books}" class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${book.title}">Book Title</h5>
+            <p class="card-text" th:text="${book.isbn}">ISBN</p>
+            <a th:href="${book.infoUrl}" target="_blank" class="btn btn-primary">Web Link</a>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies for proper functionality -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

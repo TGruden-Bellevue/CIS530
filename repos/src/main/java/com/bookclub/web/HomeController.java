@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bookclub.dao.impl.MemBookDao;
+import com.bookclub.dao.impl.RestBookDao;
 import com.bookclub.model.Book;
 
 @Controller
@@ -31,7 +31,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
-        MemBookDao bookDao = new MemBookDao();
+        RestBookDao bookDao = new RestBookDao();
         List<Book> books = bookDao.list();
         model.addAttribute("books", books);
         return "index";
@@ -39,7 +39,7 @@ public class HomeController {
 
     @GetMapping("/{id}")
     public String getMonthlyBook(@PathVariable String id, Model model) {
-        MemBookDao bookDao = new MemBookDao();
+        RestBookDao bookDao = new RestBookDao();
         Book book = bookDao.find(id);
         model.addAttribute("book", book);
         return "monthly-books/view";

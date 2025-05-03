@@ -2,6 +2,7 @@ package com.bookclub.web;
 
 import com.bookclub.model.WishlistItem;
 import com.bookclub.dao.impl.WishlistDao;
+import com.bookclub.controller.MongoWishlistDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +16,11 @@ public class WishlistController {
     @Autowired
     private WishlistDao wishlistDao; // Use the MongoWishlistDao
 
-    // Show the wishlist page with the list of items
+    // Show the wishlist page with the list of items (Step 4 update)
     @RequestMapping("/wishlist")
     public String showWishlist(Model model) {
-        model.addAttribute("wishlist", wishlistDao.list()); // Fetch the list from MongoDB
-        return "wishlist/list"; // Render the wishlist page
+        // The method is now simplified to return the "wishlist/list" page
+        return "wishlist/list"; // This renders the updated wishlist page
     }
 
     // Show the form to add a new wishlist item

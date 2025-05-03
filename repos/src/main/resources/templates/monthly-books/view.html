@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Book Details</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1 th:text="${book.title}">Book Title</h1>
-    <p th:text="${book.description}">Description of the book</p>
-    <p>Number of Pages: <span th:text="${book.numOfPages}">Pages</span></p>
-    <h3>Authors:</h3>
-    <ul>
-        <li th:each="author : ${book.authors}" th:text="${author}">Author Name</li>
-    </ul>
-    <a href="/home">Back to Book List</a>
+    <h1>Book Details</h1>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${book.title}">Book Title</h5>
+            <p class="card-text" th:text="${book.numOfPages}">Number of Pages</p>
+            <p class="card-text" th:text="${book.description}">Description</p>
+            <a th:href="${book.infoUrl}" target="_blank" class="btn btn-primary">Web Link</a>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies for proper functionality -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
