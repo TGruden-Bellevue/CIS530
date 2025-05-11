@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wishlist Item Details</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Wishlist Item Details</h1>
+
+        <!-- Card to display the wishlist item details -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <!-- Display Book Title -->
+                <h5 class="card-title" th:text="${wishlistItem.title}">Book Title</h5>
+
+                <!-- Display Book Description -->
+                <p class="card-text" th:text="${wishlistItem.description}">Description</p>
+
+                <!-- Display Book ISBN -->
+                <p class="card-text"><strong>ISBN:</strong> <span th:text="${wishlistItem.isbn}">ISBN</span></p>
+
+                <!-- Display Book Number of Pages -->
+                <p class="card-text"><strong>Number of Pages:</strong> <span th:text="${wishlistItem.numOfPages}">Pages</span></p>
+
+                <!-- Link to the book's info page -->
+                <a th:href="${wishlistItem.infoUrl}" class="btn btn-primary" target="_blank">More Info</a>
+            </div>
+        </div>
+
+        <!-- Back to wishlist button -->
+        <a href="/wishlist" class="btn btn-secondary mt-4">Back to Wishlist</a>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies for proper functionality -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
